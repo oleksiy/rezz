@@ -1,0 +1,43 @@
+services:
+  web_server:
+    build: .
+    profiles:
+      - all
+    environment:
+      - DB_NAME=rezzdb
+    ports:
+      - 8080:8080
+      - 8090:8090
+    hostname: localhost
+    networks:
+      - rezz-network
+    depends_on:
+      - db
+  db:
+    profiles:
+      - dev
+    image: mysql:latest
+    restart: unless-stopped
+    secrets:
+      - db-password
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - rezz-network
+    environment:
+      - MYSQL_DATABASE=reservations_db
+      - MYSQL_USER=springuser
+      - MYSQL_PASSWORD_FILE=/run/secrets/db-password
+      - SERVICE_NAME=mysql
+      - SERVICE_TAGS=dev
+      - MYSQL_ROOT_PASSWORD=password
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+    hostname: localhost
+secrets:
+  db-password:
+    file: db/password.txt
+networks:
+  rezz-network:
