@@ -1,4 +1,4 @@
-package com.example.rezz;
+package com.application.rezz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

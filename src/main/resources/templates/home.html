@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+</head>
+<body>
+    <p th:text="'Fuck you ' + ${shit}"/>
+
+    <form action="#" th:action="@{/hi}" th:object="${greeting}" method="post">
+        <p>Id: <input type="text" th:field="*{id}" /></p>
+        <p>MESSAGE: <input type="text" th:field="*{content}" /></p>
+        <p><input type="submit" value="Submit"/><input type="reset" value="Reset"/></p>
+    </form>
+</body>
+</html>

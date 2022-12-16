@@ -1,4 +1,4 @@
-package com.example.rezz;
+package com.application.rezz;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
