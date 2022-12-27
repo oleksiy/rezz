@@ -33,13 +33,14 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - name: Figure out which directory I'm in
-      run: echo ${{github.token}}
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: rezz-app
+        path: target
 
-    - name: Create a downloads dir
-      run: ls -al && cat settings.xml
 
-    - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
+#    - name: Publish to GitHub Packages Apache Maven
+#      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+#      env:
+#        GITHUB_TOKEN: ${{ github.token }}
