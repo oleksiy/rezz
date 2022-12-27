@@ -33,6 +33,9 @@ jobs:
 
     - name: Figure out which directory I'm in
       run: pwd
+    - name: Create a downloads dir
+      run: mkdir downloads && ls -al
+
     #- name: Publish to GitHub Packages Apache Maven
     #  run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
     #  env:
