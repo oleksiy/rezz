@@ -34,7 +34,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Figure out which directory I'm in
-      run: pwd && echo $GITHUB_WORKSPACE
+      run: echo ${{github.token}}
 
     - name: Create a downloads dir
       run: ls -al && cat settings.xml
