@@ -1,5 +1,6 @@
-package com.application.rezz;
+package com.application.rezz.controllers;
 
+import com.application.rezz.Greeting;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
