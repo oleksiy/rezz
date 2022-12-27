@@ -20,10 +20,10 @@ jobs:
     - uses: actions/checkout@v3
     - name: Ready the Database
       run: ./readyDevEnv.sh
-    - name: Set up JDK 11
+    - name: Set up JDK 19
       uses: actions/setup-java@v3
       with:
-        java-version: '17'
+        java-version: '19'
         distribution: 'temurin'
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
