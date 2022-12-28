@@ -8,19 +8,33 @@
         <version>3.0.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+    <groupId>com.application.rezz</groupId>
     <artifactId>rezz</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>rezz</name>
     <description>rezz</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>19</java.version>
         <spring.version>6.0.2</spring.version>
+        <springboot.version>3.0.0</springboot.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <version>${springboot.version}</version>
+            <!--added for security vulnerability avoidance -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.yaml</groupId>
+                    <artifactId>snakeyaml</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
+            <version>${springboot.version}</version>
         </dependency>
         <dependency>
             <groupId>com.mysql</groupId>
@@ -56,16 +70,15 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
             <version>2.3.31</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context-support</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+        -->
+
+
     </dependencies>
 
     <build>
